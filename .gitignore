@@ -1,0 +1,19 @@
+# Compiled Java
+*.class
+out/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Mac
+.DS_Store
+
+# Claude
+.claude/
+
+# Data files (user-generated at runtime)
+records.dat
+students.dat
