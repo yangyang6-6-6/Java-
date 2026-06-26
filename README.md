@@ -8,7 +8,7 @@
 | 文件 | 类型 | 说明 |
 |------|:--:|------|
 | `model/Student.java` | 共享实体 | 学生信息，含 answerRate / totalCalled |
-| `model/RollCallRecord.java` | 共享实体 | 点名记录，含 isAnswered |
+| `model/RollCallRecord.java` | 共享实体 | 点名记录，含有 isAnswered |
 | `service/StatisticsService.java` | **独立负责** | 汇总统计、频次分布、Stream API 过滤 |
 | `view/StatisticsPanel.java` | **独立负责** | 统计界面：四卡片 + 排名表 + 频次展示 |
 
