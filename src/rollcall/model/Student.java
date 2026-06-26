@@ -18,6 +18,10 @@ public class Student {
         return (double) totalAnswered / totalCalled * 100;
     }
 
+    public double getCallWeight() {
+        return 100.0 / (totalCalled + 1);
+    }
+
     public String getStudentNo() { return studentNo; }
     public String getName() { return name; }
     public String getClassName() { return className; }
