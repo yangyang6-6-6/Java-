@@ -1,9 +1,12 @@
 package rollcall.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class RollCallRecord {
+public class RollCallRecord implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String studentNo;
     private String studentName;
     private String courseName;

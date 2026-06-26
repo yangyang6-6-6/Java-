@@ -9,9 +9,12 @@ import java.awt.*;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 数据统计面板 —— 汇总卡片 + 排名表 + 频次分布
+ */
 public class StatisticsPanel extends JPanel {
 
-    private StatisticsService service;
+    private final StatisticsService service;
     private JLabel totalStu, totalCalls, answered, rate;
     private DefaultTableModel rankModel;
 
@@ -43,7 +46,7 @@ public class StatisticsPanel extends JPanel {
         tablePanel.add(new JScrollPane(table), BorderLayout.CENTER);
         add(tablePanel, BorderLayout.CENTER);
 
-        // 刷新按钮
+        // 刷新
         JButton refreshBtn = new JButton("刷新数据");
         refreshBtn.addActionListener(e -> refreshAll());
         JPanel bottom = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -79,7 +82,8 @@ public class StatisticsPanel extends JPanel {
         rate.setText(s.get("overallRate") + "%");
 
         rankModel.setRowCount(0);
-        List<Student> students = service.getRankedStudents();
+        List<Student> students = service.getStudents();
+        students.sort((a, b) -> b.getTotalCalled() - a.getTotalCalled());
         int rank = 1;
         for (Student st : students) {
             rankModel.addRow(new Object[]{

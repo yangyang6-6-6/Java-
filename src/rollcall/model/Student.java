@@ -1,16 +1,24 @@
 package rollcall.model;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String studentNo;
     private String name;
     private String className;
     private int totalCalled;
     private int totalAnswered;
+    private boolean onLeave = false;
 
     public Student(String studentNo, String name, String className) {
         this.studentNo = studentNo;
         this.name = name;
         this.className = className;
+        this.totalCalled = 0;
+        this.totalAnswered = 0;
+        this.onLeave = false;
     }
 
     public double getAnswerRate() {
@@ -29,4 +37,6 @@ public class Student {
     public void incrementCalled() { totalCalled++; }
     public int getTotalAnswered() { return totalAnswered; }
     public void incrementAnswered() { totalAnswered++; }
+    public boolean isOnLeave() { return onLeave; }
+    public void setOnLeave(boolean onLeave) { this.onLeave = onLeave; }
 }
